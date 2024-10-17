@@ -12,6 +12,7 @@ import pywhatkit as kit
 workbook = openpyxl.load_workbook('clientes.xlsx')
 clientes = workbook['Planilha1']
 
+ 
 for linha in clientes.iter_rows(min_row=2):
     
     nome = linha[5].value
@@ -27,14 +28,19 @@ for linha in clientes.iter_rows(min_row=2):
     # print('55'+str(telefone1))
     # print(telefone1)
     # print(telefone2)
-    # print(telefone3)
+    # print(telefone3)    
+    
+    
+    
     # print(telefone4)
-    mensagem = f'Olá {nome}, boa tarde !'
+    # mensagem = f'Olá {nome}, boa tarde !'
     conv_tel = '+55'+str(telefone1)
     print(conv_tel)
-    sleep(30)
-    kit.sendwhats_image(conv_tel, "anuncio.png", "Olá! Me chamo Pedro e estou mandando essa mensagem para te ajudar. Está precisando de dinheiro rápido, mas não tem margem?? Posso te ajudar a conseguir esse dinheiro e ainda benefícios. Só responder essa mensagem que entro em contato com as informações detalhadas.   ", 7 )
-    sleep(3)
+    sleep(30) 
+ 
+ 
+    kit.sendwhats_image(conv_tel, "anuncio.png", "Olá! Me chamo Pedro e estou mandando essa mensagem para te ajudar. Está precisando de dinheiro rápido, mas não tem margem?? Posso te ajudar a conseguir esse dinheiro e ainda benefícios. Só responder essa mensagem que entro em contato com as informações detalhadas. ", 7 )
+    sleep(4)
     pyautogui.hotkey('ctrl', 'w')
 
     # try:
