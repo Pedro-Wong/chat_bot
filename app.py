@@ -13,11 +13,16 @@ workbook = openpyxl.load_workbook('clientes.xlsx')
 clientes = workbook['Planilha1']
 
 for linha in clientes.iter_rows(min_row=2):
+    
     nome = linha[5].value
     telefone1 = linha[0].value
     telefone2 = linha[1].value
     telefone3 = linha[2].value
     telefone4 = linha[3].value
+
+    if nome == None:
+        break
+
     print(nome)
     # print('55'+str(telefone1))
     # print(telefone1)
@@ -27,8 +32,8 @@ for linha in clientes.iter_rows(min_row=2):
     mensagem = f'Olá {nome}, boa tarde !'
     conv_tel = '+55'+str(telefone1)
     print(conv_tel)
-    sleep(15)
-    kit.sendwhats_image(conv_tel, "anuncio.png", "Precisando de dinheiro rápido?", 7 )
+    sleep(30)
+    kit.sendwhats_image(conv_tel, "anuncio.png", "Olá! Me chamo Pedro e estou mandando essa mensagem para te ajudar. Está precisando de dinheiro rápido, mas não tem margem?? Posso te ajudar a conseguir esse dinheiro e ainda benefícios. Só responder essa mensagem que entro em contato com as informações detalhadas.   ", 7 )
     sleep(3)
     pyautogui.hotkey('ctrl', 'w')
 
